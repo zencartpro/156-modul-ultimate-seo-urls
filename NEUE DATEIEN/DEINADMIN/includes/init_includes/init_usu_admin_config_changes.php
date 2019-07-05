@@ -111,6 +111,26 @@ if (!$usu_check->EOF) {
             }
             break;
         // -----
+        // If the admin has requested that the overall USU cache be reset, ensure that the value
+        // to be stored back for that setting is now 'false' and indicate that the cache should
+        // be fully reset.
+        //
+        case 'USU_CACHE_RESET':
+            $usu_cache_reset = 'true';
+            $_POST['configuration_value'] = 'false';
+            break;
+        // -----
+        // The 'Enter PCRE Filter Rules' value requires that the filters be entered as
+        // find1=>replace1[,find2=>replace2]...
+        //
+        // Unfortunately, the Zen Cart admin sanitization is changing the => to =&gt; which
+        // breaks the URL handling on the storefront.  If that setting is being updated, make
+        // sure that any =&gt; values are properly changed back to =>.
+        //
+        case 'USU_FILTER_PCRE':
+            $_POST['configuration_value'] = str_replace('=&gt;', '=>', $_POST['configuration_value']);
+            break;
+        // -----
         // For all other settings, no action required.
         //
         default:
