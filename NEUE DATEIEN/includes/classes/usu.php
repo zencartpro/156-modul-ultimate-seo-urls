@@ -5,7 +5,7 @@
  *
  * @copyright Copyright 2019        Cindy Merkin (vinosdefrutastropicales.com)
  * @copyright Copyright 2012 - 2015 Andrew Ballanger
- * @copyright Portions Copyright 2003 - 2015 Zen Cart Development Team
+ * @copyright Portions Copyright 2003 - 2019 Zen Cart Development Team
  * @copyright Portions Copyright 2005 Joshua Dechant
  * @copyright Portions Copyright 2005 Bobby Easland
  * @license http://www.gnu.org/licenses/gpl.txt GNU GPL V3.0
@@ -40,35 +40,35 @@ class usu
         if ($languages_id == '') {
             $languages_id = $_SESSION['languages_id'];
         }
-		$this->languages_id = (int)$languages_id;
+        $this->languages_id = (int)$languages_id;
 
-		$this->cache = false;
+        $this->cache = false;
 
-		$this->reg_anchors = array(
-			'products_id' => '-p-',
-			'cPath' => '-c-',
-			'manufacturers_id' => '-m-',
-			'pID' => '-pi-',
-			'products_id_review' => '-pr-',
-			'products_id_review_info' => '-pri-',
-			'id' => '-ezp-',
-		);
+        $this->reg_anchors = array(
+            'products_id' => '-p-',
+            'cPath' => '-c-',
+            'manufacturers_id' => '-m-',
+            'pID' => '-pi-',
+            'products_id_review' => '-pr-',
+            'products_id_review_info' => '-pri-',
+            'id' => '-ezp-',
+        );
 
-		if(null === self::$unicodeEnabled) {
-			self::$unicodeEnabled = (@preg_match('/\pL/u', 'a')) ? true : false;
-		}
+        if (null === self::$unicodeEnabled) {
+            self::$unicodeEnabled = (@preg_match('/\pL/u', 'a')) ? true : false;
+        }
 
-		$this->filter_pcre = defined('USU_FILTER_PCRE') ? $this->expand(USU_FILTER_PCRE) : 'false';
-		$this->filter_page = defined('USU_FILTER_PAGES') && zen_not_null(USU_FILTER_PAGES) ? explode(',', str_replace(' ', '', USU_FILTER_PAGES)) : array();
+        $this->filter_pcre = defined('USU_FILTER_PCRE') ? $this->expand(USU_FILTER_PCRE) : 'false';
+        $this->filter_page = defined('USU_FILTER_PAGES') && zen_not_null(USU_FILTER_PAGES) ? explode(',', str_replace(' ', '', USU_FILTER_PAGES)) : array();
 
-		if(defined('USU_CACHE_GLOBAL') && USU_CACHE_GLOBAL == 'true') {
-			// Prepare in memory cache
-			$this->cache = array(
-				'PRODUCTS' => array(),
-				'CATEGORIES' => array(),
-				'MANUFACTURERS' => array(),
-				'EZPAGES' => array()
-			);
+        if (defined('USU_CACHE_GLOBAL') && USU_CACHE_GLOBAL == 'true') {
+            // Prepare in memory cache
+            $this->cache = array(
+                'PRODUCTS' => array(),
+                'CATEGORIES' => array(),
+                'MANUFACTURERS' => array(),
+                'EZPAGES' => array()
+            );
 
             // Handle the SQL cache options if the table exists
             if ($GLOBALS['sniffer']->table_exists(TABLE_USU_CACHE)) {
@@ -198,7 +198,7 @@ class usu
 
         // The base URL for the request
         if (IS_ADMIN_FLAG === true) {
-            if ($connection == 'SSL' && ENABLE_SSL == 'true') {
+            if ($connection == 'SSL' && ENABLE_SSL_CATALOG == 'true') {
                 $link = HTTPS_CATALOG_SERVER;
                 if ($use_dir_ws_catalog) {
                     $link .= DIR_WS_HTTPS_CATALOG;
