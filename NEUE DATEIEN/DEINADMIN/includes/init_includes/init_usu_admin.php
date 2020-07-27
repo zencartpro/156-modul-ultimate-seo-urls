@@ -2,7 +2,7 @@
 /**
  * Part of Ultimate URLs, v3.0.0+, for Zen Cart.
  *
- * @copyright Copyright 2019 Cindy Merkin (vinosdefrutastropicales.com)
+ * @copyright Copyright 2019-2020 Cindy Merkin (vinosdefrutastropicales.com)
  * @license http://www.gnu.org/licenses/gpl.txt GNU GPL V3.0
  */
 if (!defined('IS_ADMIN_FLAG') || IS_ADMIN_FLAG !== true) {
@@ -14,8 +14,8 @@ if (!defined('IS_ADMIN_FLAG') || IS_ADMIN_FLAG !== true) {
 // last_modified date for the USU_VERSION configuration setting is updated to reflect
 // the current update-date.
 //
-define('USU_CURRENT_VERSION', '3.0.4');
-define('USU_CURRENT_UPDATE_DATE', '2019-11-08');
+define('USU_CURRENT_VERSION', '3.0.6');
+define('USU_CURRENT_UPDATE_DATE', '2020-07-27');
 
 // -----
 // Wait until an admin is logged in before seeing if any initialization steps need to be performed.
