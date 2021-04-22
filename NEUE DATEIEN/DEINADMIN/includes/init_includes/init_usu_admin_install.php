@@ -2,10 +2,10 @@
 /**
  * Part of Ultimate URLs for Zen Cart. This script is loaded by admin/init_includes/init_usu_admin.php 
  * on an initial installation of the plugin or an upgrade from a version prior to v3.0.1.
- * German Install - 2019-06-23 webchills
+ * German Install - 2021-04-22 webchills
  * @copyright Copyright 2019 Cindy Merkin (vinosdefrutastropicales.com)
  * @license http://www.gnu.org/licenses/gpl.txt GNU GPL V3.0
- * modified for Zen Cart German 2019-07-05 webchills
+ * modified for Zen Cart German 2021-04-22 webchills
  */
 if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');

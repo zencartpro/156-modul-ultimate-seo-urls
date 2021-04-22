@@ -54,7 +54,7 @@ RewriteEngine on
 # Don't forget the leading and trailing /. This directive requires both!
 #
 # WICHTIG: Ersetzen Sie bei RewriteBase /shop/ mit dem Verzeichnis, in dem der Zen-Cart Shop läuft, relativ zum Root Verzeichnis angegeben.
-# Diese Änderung müssen Sie nur vorneheemn, wenn der Shop in einem Unterverzeichnis läuft!
+# Diese Änderung müssen Sie nur vornehmen, wenn der Shop in einem Unterverzeichnis läuft!
 # Beispiel: Shop läuft im Unterverzeichnis auf http://www.meinshop.de/onlineshop
 # Dann wäre folgender Eintrag korrekt: RewriteBase /onlineshop/
 # Änderung vornehmen und die Raute zu Beginn entfernen, um den Eintrag zu aktivieren

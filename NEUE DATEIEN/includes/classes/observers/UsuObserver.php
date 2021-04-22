@@ -2,7 +2,7 @@
 /**
  * Part of Ultimate URLs for Zen Cart.
  *
- * @copyright Copyright 2019 Cindy Merkin (vinosdefrutastropicales.com)
+ * @copyright Copyright 2019-2021 Cindy Merkin (vinosdefrutastropicales.com)
  * @license http://www.gnu.org/licenses/gpl.txt GNU GPL V3.0
  */
 if (!defined('IS_ADMIN_FLAG') || IS_ADMIN_FLAG === true) {
@@ -25,6 +25,8 @@ class UsuObserver extends base
                 array( 
                     /* From /includes/functions/html_output.php */
                    'NOTIFY_SEFU_INTERCEPT', 
+                    /* From /includes/init_includes/init_canonical.php */
+                    'NOTIFY_INIT_CANONICAL_PARAM_WHITELIST',
                 )
             );
         }
@@ -52,6 +54,14 @@ class UsuObserver extends base
                 $p2 = $this->usu->href_link($p3, $p4, $p5, $p6, true, $p7, $p8);
                 break;
 
+            // -----
+            // Issued near the top of the init_canonical.php, gives us the chance to instruct the base
+            // USU class to calculate its canonical link, if needed.  Note that none of the parameters
+            // supplied by this notification are pertinent to the operation.
+            //
+            case 'NOTIFY_INIT_CANONICAL_PARAM_WHITELIST':
+                $this->usu->canonical();
+                break;
             default:
                 break;
         }
